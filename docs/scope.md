@@ -1,6 +1,6 @@
 # Assessment scope and delivery checkpoints
 
-Status: checkpoints 1-9 complete locally; checkpoint 10 awaits publication and public-link checks. Consult `verification.md` for actual results rather than treating planned scope as implemented behavior.
+Status: all ten preparation checkpoints complete. Public repository and PDF access were verified anonymously; the interview walkthrough is available. The candidate's review and submission-form delivery remain manual. Consult `verification.md` for actual results rather than treating planned scope as implemented behavior.
 
 ## Verified brief
 

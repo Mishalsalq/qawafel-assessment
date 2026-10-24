@@ -31,9 +31,15 @@ Local QA images and temporary bad-file fixtures are excluded from Git. A synthet
 
 Generated the written assessment with reportlab, extracted its text, rendered all **8 pages**, and visually inspected the complete page set plus the dense data-model table and process figure at readable resolution. Corrected separated headings, numbered lists, an orphan final page, and clipped dashboard values. The final PDF includes all assessment tasks, the process figure, assumptions/boundaries, and AI disclosure.
 
-## Not verified / remaining delivery checks
+## Public delivery verified
 
-- Public repository/PDF URLs and anonymous access must be checked after publishing; local app verification does not prove hosting.
+- Published to [Mishalsalq/qawafel-assessment](https://github.com/Mishalsalq/qawafel-assessment), a public repository.
+- Anonymous HTTP requests, with no authentication or stored session, returned 200 for the repository, README, sample CSV, dashboard screenshot, and [written PDF](https://raw.githubusercontent.com/Mishalsalq/qawafel-assessment/main/output/pdf/qawafel-assessment.pdf).
+- Downloaded PDF bytes exactly match the locally rendered/reviewed PDF.
+- The GitHub tree matched all 30 tracked files in the initial verified publication, including Git object hashes. Subsequent documentation-only updates record this delivery result and the submission checklist.
+
+## Not verified / remaining manual steps
+
 - No live deployment, real bank calls, production security, PDF statement extraction, or receipt reconciliation was implemented or tested.
 - No labeled financial ML evaluation or credit-policy validation was performed.
 - The submission form has not been sent. The candidate must review the work and provide any personal/application fields themselves before submission.
