@@ -18,7 +18,9 @@ st.set_page_config(page_title="Wholesaler Financing Insights", page_icon="📊",
 st.markdown("""
 <style>
 [data-testid="stHeader"], [data-testid="stSidebarHeader"] {background-color: #040815; border-bottom: 1px solid #172033;}
-[data-testid="stSidebarHeader"] {box-shadow: -2rem 0 0 #040815, 2rem 0 0 #040815;}
+[data-testid="stSidebarContent"] {display: flex; flex-direction: column; overflow: hidden; scrollbar-gutter: auto; padding: 0;}
+[data-testid="stSidebar"] [data-testid="stSidebarHeader"] {flex: 0 0 3.75rem; width: 100%; margin: 0; padding: 0 1.5rem; box-sizing: border-box;}
+[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; width: 100%; margin: 0; padding: 1rem 1.5rem 6rem; box-sizing: border-box;}
 :is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button {color: #F7F4ED; background-color: transparent;}
 :is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button:hover {color: #FFFFFF; background-color: rgba(255, 255, 255, 0.10);}
 :is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button:focus-visible {outline: 2px solid #B38B45; outline-offset: 2px;}
