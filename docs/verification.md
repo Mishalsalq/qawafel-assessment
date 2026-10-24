@@ -4,7 +4,7 @@ Executed on 24 October 2026 using Python 3.12 on Windows. These are actual local
 
 ## Automated checks
 
-- `python -m pytest -q`: **35 passed** on the final code revision before packaging.
+- `python -m pytest -q`: **35 passed** on the completed prototype before initial packaging.
 - `python -m pip check`: **No broken requirements found**.
 - Generator checks: deterministic rows with seed 42; 667 unique invoice IDs; 24 fictional customers; all 12 months; exact net + VAT = gross; valid payment chronology.
 - Hand-calculated four-invoice fixture: gross SAR 1,150; settlements SAR 575; outstanding SAR 575; overdue SAR 230. Results match.
@@ -37,6 +37,10 @@ Generated the written assessment with reportlab, extracted its text, rendered al
 - Anonymous HTTP requests, with no authentication or stored session, returned 200 for the repository, README, sample CSV, dashboard screenshot, and [written PDF](https://raw.githubusercontent.com/Mishalsalq/qawafel-assessment/main/output/pdf/qawafel-assessment.pdf).
 - Downloaded PDF bytes exactly match the locally rendered/reviewed PDF.
 - The GitHub tree matched all 30 tracked files in the initial verified publication, including Git object hashes. Subsequent documentation-only updates record this delivery result and the submission checklist.
+
+## Candidate attribution update
+
+Added Mishal Saad's attribution to the PDF, README, app, exported summary, and supporting submission documents. Rebuilt and visually reviewed all eight PDF pages; verified that every page includes the name and PDF author metadata is Mishal Saad. Confirmed the app byline in the browser and refreshed the dashboard screenshot. The existing app and analysis checks passed: `python -m pytest tests/test_app.py tests/test_analysis.py -q` (**5 passed**).
 
 ## Not verified / remaining manual steps
 

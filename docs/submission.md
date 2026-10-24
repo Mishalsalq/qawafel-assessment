@@ -1,5 +1,7 @@
 # Submission checklist
 
+**Candidate: Mishal Saad**
+
 Deadline: 24 October 2026 at 23:59, Asia/Riyadh (UTC+3), as stated in the supplied assessment brief.
 
 ## Links to paste

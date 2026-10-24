@@ -1,5 +1,7 @@
 # Qawafel Graduate Software Engineer Assessment
 
+**Prepared by: Mishal Saad**
+
 ## Scope and key decisions
 
 The working prototype turns a fictional wholesaler's sales invoices into a preliminary financing evidence package. It validates uploads, computes traceable financial indicators, highlights unusual invoices using unsupervised learning, and exports a reviewer summary. It does not decide creditworthiness.

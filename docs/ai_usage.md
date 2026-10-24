@@ -1,5 +1,7 @@
 # AI use disclosure
 
+**Candidate: Mishal Saad**
+
 ## Development assistance
 
 OpenAI Codex was used to read and interpret the assessment, review earlier context supplied by the candidate, inspect Qawafel's public product pages, write and revise code and documentation, generate a reproducible fictional dataset, and execute validation and application checks.

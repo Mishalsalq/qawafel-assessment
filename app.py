@@ -52,6 +52,7 @@ with st.sidebar:
 st.markdown('<div class="eyebrow">FINANCING EVIDENCE / SALES INVOICE REVIEW</div>', unsafe_allow_html=True)
 st.title("Wholesaler Financing Insights")
 st.write("Turn 12 months of invoices into a clear, traceable review package.")
+st.caption("Prepared by Mishal Saad · Qawafel Graduate Software Engineer Assessment")
 st.caption(f"Snapshot {snapshot:%d %b %Y} · SAR · {'Demo Wholesale Co. (Synthetic)' if source == 'Synthetic sample' else 'Uploaded fictional invoice cohort'}")
 
 if source == "Upload fictional invoices" and uploaded is None:

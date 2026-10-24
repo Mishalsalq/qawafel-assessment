@@ -183,12 +183,12 @@ def build() -> Path:
         canvas.line(46, A4[1] - 34, A4[0] - 46, A4[1] - 34)
         canvas.setFont("Helvetica", 7.5)
         canvas.setFillColor(MUTED)
-        canvas.drawString(46, 25, "Qawafel graduate assessment | Independent candidate prototype | Synthetic data only")
+        canvas.drawString(46, 25, "Mishal Saad | Qawafel graduate assessment | Synthetic data only")
         canvas.drawRightString(A4[0] - 46, 25, f"{doc.page}")
         canvas.restoreState()
 
     document = SimpleDocTemplate(str(target), pagesize=A4, rightMargin=46, leftMargin=46, topMargin=48, bottomMargin=43,
-                                 title="Qawafel Graduate Software Engineer Assessment", author="Candidate submission")
+                                 title="Qawafel Graduate Software Engineer Assessment", author="Mishal Saad")
     document.build(story, onFirstPage=page_frame, onLaterPages=page_frame)
     print(target)
     return target

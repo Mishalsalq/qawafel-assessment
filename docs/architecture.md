@@ -1,5 +1,7 @@
 # Proposed production architecture
 
+**Assessment submission by Mishal Saad**
+
 The Streamlit prototype implements invoice validation, analysis, anomaly review, and exports. All document workers, database entities, reconciliation, and bank services below are future production design.
 
 ## Process and trust boundaries

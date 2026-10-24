@@ -103,6 +103,7 @@ def reviewer_summary(result: Analysis, as_of: date, anomaly_count: int | None = 
     ai_line = f"- AI review flags: {anomaly_count} unusual invoices, requiring human verification.\n" if anomaly_count is not None else "- AI anomaly review was not run.\n"
     return (
         f"# Preliminary financing evidence summary\n\n"
+        "Assessment prototype by Mishal Saad.\n\n"
         f"Snapshot: {as_of.isoformat()}. Scope: uploaded sales invoice cohort only.\n\n"
         f"- Invoices: {m['invoice_count']}; customers: {m['customer_count']}; months represented: {m['months_present']}/12.\n"
         f"- Net invoiced sales, excluding VAT: SAR {m['net_sales_sar']:,.2f}.\n"

@@ -1,5 +1,7 @@
 # Wholesaler Financing Insights
 
+**Prepared by Mishal Saad** | Qawafel Graduate Software Engineer Assessment
+
 A focused Qawafel Graduate Software Engineer assessment prototype. It turns 12 months of fictional wholesale **sales** invoices into traceable evidence for a financing reviewer. The bank retains the lending decision.
 
 ![Synthetic invoice review dashboard](docs/assets/dashboard.png)
