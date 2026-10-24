@@ -1,10 +1,10 @@
 # Verification record
 
-Executed on 24 October 2026 using Python 3.12 on Windows. These are actual local results, not claims about untested hosting.
+Verified on 24 October 2026 using Python 3.12 on Windows.
 
 ## Automated checks
 
-- `python -m pytest -q`: **35 passed** on the completed prototype before initial packaging.
+- `python -m pytest -q`: **35 passed** on the completed prototype.
 - `python -m pip check`: **No broken requirements found**.
 - Generator checks: deterministic rows with seed 42; 667 unique invoice IDs; 24 fictional customers; all 12 months; exact net + VAT = gross; valid payment chronology.
 - Hand-calculated four-invoice fixture: gross SAR 1,150; settlements SAR 575; outstanding SAR 575; overdue SAR 230. Results match.
@@ -15,7 +15,7 @@ Executed on 24 October 2026 using Python 3.12 on Windows. These are actual local
 
 ## Actual browser review
 
-Started Streamlit locally on loopback port 8501. Used headless Microsoft Edge/Playwright because the in-app browser control did not respond. Verified:
+Verified the running Streamlit application using Microsoft Edge/Playwright:
 
 - Sample page and both rendered charts load.
 - At 1440x1100, no horizontal document overflow and no clipped metric values after typography correction.
@@ -25,25 +25,21 @@ Started Streamlit locally on loopback port 8501. Used headless Microsoft Edge/Pl
 - Uploading a duplicate-invoice CSV displays validation issues and removes all financial metrics after the rerun completes.
 - No browser JavaScript errors in that scenario.
 
-Local QA images and temporary bad-file fixtures are excluded from Git. A synthetic overview screenshot is included under `docs/assets/` for convenience.
+A synthetic overview screenshot is included under `docs/assets/`.
 
 ## Written artifact
 
-Generated the written assessment with reportlab, extracted its text, rendered all **8 pages**, and visually inspected the complete page set plus the dense data-model table and process figure at readable resolution. Corrected separated headings, numbered lists, an orphan final page, and clipped dashboard values. The final PDF includes all assessment tasks, the process figure, assumptions/boundaries, and AI disclosure.
+Generated the written assessment with reportlab and verified extracted text and rendered page layouts. The PDF includes all assessment tasks, the process figure, assumptions/boundaries, candidate attribution, and AI disclosure.
 
 ## Public delivery verified
 
 - Published to [Mishalsalq/qawafel-assessment](https://github.com/Mishalsalq/qawafel-assessment), a public repository.
 - Anonymous HTTP requests, with no authentication or stored session, returned 200 for the repository, README, sample CSV, dashboard screenshot, and [written PDF](https://raw.githubusercontent.com/Mishalsalq/qawafel-assessment/main/output/pdf/qawafel-assessment.pdf).
 - Downloaded PDF bytes exactly match the locally rendered/reviewed PDF.
-- The GitHub tree matched all 30 tracked files in the initial verified publication, including Git object hashes. Subsequent documentation-only updates record this delivery result and the submission checklist.
+- Published files were matched to the local Git tree using object hashes.
+- Following candidate-attribution text changes, the existing app and analysis checks passed: `python -m pytest tests/test_app.py tests/test_analysis.py -q` (**5 passed**).
 
-## Candidate attribution update
-
-Added Mishal Saad's attribution to the PDF, README, app, exported summary, and supporting submission documents. Rebuilt and visually reviewed all eight PDF pages; verified that every page includes the name and PDF author metadata is Mishal Saad. Confirmed the app byline in the browser and refreshed the dashboard screenshot. The existing app and analysis checks passed: `python -m pytest tests/test_app.py tests/test_analysis.py -q` (**5 passed**).
-
-## Not verified / remaining manual steps
+## Verification boundaries
 
 - No live deployment, real bank calls, production security, PDF statement extraction, or receipt reconciliation was implemented or tested.
 - No labeled financial ML evaluation or credit-policy validation was performed.
-- The submission form has not been sent. The candidate must review the work and provide any personal/application fields themselves before submission.

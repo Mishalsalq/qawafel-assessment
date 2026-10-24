@@ -12,7 +12,7 @@ A focused Qawafel Graduate Software Engineer assessment prototype. It turns 12 m
 - [Submission PDF](output/pdf/qawafel-assessment.pdf) - the same written work, including a process diagram.
 - [Production process and entity diagrams](docs/architecture.md).
 - [Sample Excel](data/synthetic_invoices.xlsx) / [sample CSV](data/synthetic_invoices.csv) / [dataset manifest](data/manifest.json).
-- [Assumptions](docs/assumptions.md), [AI disclosure](docs/ai_usage.md), and [technical walkthrough](docs/interview_walkthrough.md).
+- [Assumptions](docs/assumptions.md) and [AI disclosure](docs/ai_usage.md).
 
 ## Run locally
 
@@ -126,4 +126,4 @@ output/pdf/                    Shareable written assessment
 
 ## Development attribution
 
-OpenAI Codex assisted with implementation, documentation, synthetic data, company research, and checks. Earlier ChatGPT context supplied planning suggestions. The candidate should review and understand the submission before presenting it. No real bank integration or customer data is claimed. [Detailed disclosure](docs/ai_usage.md).
+OpenAI Codex assisted with code, documentation, synthetic data, and verification. ChatGPT supported initial planning. [AI disclosure and application method](docs/ai_usage.md).

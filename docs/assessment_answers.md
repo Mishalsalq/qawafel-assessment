@@ -210,6 +210,4 @@ Monitor unknown-outcome count and oldest age, status discrepancies by endpoint/t
 
 ## AI tools and attribution
 
-OpenAI Codex assisted with interpreting the brief, researching official company pages, drafting code and documentation, generating synthetic data, and running checks. ChatGPT supplied earlier background/planning context; its suggestions were checked against the original brief. The exact earlier ChatGPT model was not established. The application itself uses scikit-learn Isolation Forest locally, with no LLM API, API keys, or external financial data calls. See `docs/ai_usage.md` for scope and limitations.
-
-Public context was checked against Qawafel's [commerce](https://qawafel.sa/en/ecommerce/) and [financing](https://qawafel.sa/en/financing-en/) pages on 24 October 2026. The assessment remains the specification; bank API capabilities are unconfirmed.
+OpenAI Codex assisted with code, documentation, synthetic data, and verification. ChatGPT supported initial planning. The application's AI component is a local scikit-learn Isolation Forest for unusual-invoice review. Financial calculations and the summary are deterministic; no external LLM API or real customer data is used. See `docs/ai_usage.md` for the method and limitations.
