@@ -1,0 +1,12 @@
+{
+  "business": "Demo Wholesale Co. (Synthetic)",
+  "synthetic": true,
+  "seed": 42,
+  "as_of_date": "2026-09-30",
+  "period_start": "2025-10-01",
+  "period_end": "2026-09-30",
+  "invoice_count": 667,
+  "customer_count": 24,
+  "data_source": "Python standard-library random generator; no real records",
+  "assumptions_document": "docs/assumptions.md"
+}
