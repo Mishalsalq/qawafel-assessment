@@ -17,6 +17,13 @@ ROOT = Path(__file__).resolve().parent
 st.set_page_config(page_title="Wholesaler Financing Insights", page_icon="📊", layout="wide")
 st.markdown("""
 <style>
+[data-testid="stHeader"], [data-testid="stSidebarHeader"] {background-color: #040815; border-bottom: 1px solid #172033;}
+[data-testid="stSidebarHeader"] {box-shadow: -2rem 0 0 #040815, 2rem 0 0 #040815;}
+:is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button {color: #F7F4ED; background-color: transparent;}
+:is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button:hover {color: #FFFFFF; background-color: rgba(255, 255, 255, 0.10);}
+:is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button:focus-visible {outline: 2px solid #B38B45; outline-offset: 2px;}
+:is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button svg {color: inherit;}
+[data-testid="stSidebarHeader"] [data-testid="stIconMaterial"] {color: #F7F4ED;}
 .block-container {max-width: 1400px; padding-top: 4rem;}
 [data-testid="stMetric"] {background: white; border: 1px solid #e1e5eb; border-radius: 12px; padding: 18px;}
 [data-testid="stMetricValue"] {font-size: clamp(1.2rem, 2vw, 1.65rem);}
