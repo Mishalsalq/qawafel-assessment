@@ -79,7 +79,7 @@ The production design below covers the full scenario, including bank-statement p
 
 ### Architecture and data model
 
-Use a small production web/API service, a background processing worker, PostgreSQL, encrypted object storage, and an isolated bank adapter. The worker handles document parsing and retries independently of the upload request. This is a future design; the prototype intentionally uses a single Python/Streamlit process with no database.
+The proposed production architecture consists of a web/API service, a background processing worker, PostgreSQL, encrypted object storage, and an isolated bank adapter. The worker handles document parsing and retries independently of the upload request. The implemented prototype uses a single Python/Streamlit process with no database.
 
 Primary keys are UUIDs. Money is stored as integer minor units (`BIGINT`, halalas for SAR), with an explicit currency. Dates are `DATE`; event times are UTC timestamps. Every application-scoped query is authorized against its business owner. Financial snapshots and approved package versions are immutable.
 
@@ -100,7 +100,7 @@ Foreign keys must reference objects within the same application/business. Correc
 
 ### Proposed API
 
-These endpoints are a design contract, not implemented Streamlit endpoints. Assume TLS and OAuth/OIDC bearer tokens, business-scoped access, reviewer/operator roles, and least-privilege service credentials for the bank adapter. The browser never receives bank credentials.
+The proposed API contract uses TLS and OAuth/OIDC bearer tokens, business-scoped access, reviewer/operator roles, and least-privilege service credentials for the bank adapter. Bank credentials remain server-side. These production endpoints are outside the implemented Streamlit prototype.
 
 | Method and path | Purpose / response |
 | --- | --- |
@@ -136,23 +136,21 @@ Return 400 for malformed requests, 401 for missing authentication, 403 for prohi
 
 ### End-to-end process
 
-1. Authenticate business, capture consent and reporting period, upload invoice Excel and statement PDFs.
-2. Quarantine and validate documents; parse in a worker with source lineage. OCR is conditional on scanned input and confidence checks.
-3. Normalize invoices and transactions; check amounts, dates, coverage, duplicates, and statement balances.
-4. Return blocking issues for correction. Match receipts with invoices; send ambiguous matches to human review.
-5. Calculate transparent metrics and AI review flags separately. Produce a versioned package with exceptions and evidence references.
-6. Reviewer approves that package; bank adapter records intent and submits safely under an agreed contract.
-7. Record raw responses, reconcile uncertain/contradictory outcomes, and expose only supported confirmed decisions.
-
-The repository's `docs/architecture.md` includes entity and process diagrams. The PDF version includes a process figure so reviewers need not render Mermaid.
+Figure 1 follows the application from consent and document ingestion through validation, reconciliation, reviewer approval, bank submission, and confirmed status. Corrections return to validation; ambiguous financial evidence and uncertain bank outcomes require human verification. Entity relationships and the source process diagram are available in the [architecture specification](https://github.com/Mishalsalq/qawafel-assessment/blob/main/docs/architecture.md).
 
 ## Task 3 - Working AI prototype
 
-The repository contains 667 reproducible fictional sales invoices for 24 customers across October 2025-September 2026. The app supports CSV/XLSX input, atomic validation, net/gross sales, recorded collections, receivables aging, concentration, trends, invoice-level inspection, and exportable evidence.
+**Prototype, source code, and sample data:** [GitHub repository](https://github.com/Mishalsalq/qawafel-assessment).
 
-Deterministic financial calculations use integer halalas. The AI component is an Isolation Forest fitted independently to the current cohort: gross amount, amount relative to the customer's median, terms, and observed lateness. It produces a review queue, not a lending recommendation. The illustrative 5% review setting is not a measured fraud rate, and scores are not probabilities. Small or indistinguishable datasets skip the model. There is no labeled default or fraud dataset and no claimed predictive accuracy.
+**Implemented capabilities:** CSV/XLSX validation, sales and settlement metrics, receivables aging, customer concentration, trends, invoice inspection, AI review flags, and downloadable evidence. Money is summed in integer halalas.
 
-Data assumptions, reproduction steps, tests, actual verification results, and limitations are documented in the README and linked methodology files. No bank records, real bank integration, or production security are claimed by this prototype.
+**Sample and assumptions:** 667 fictional invoices, 24 customers, October 2025-September 2026; snapshot 30 September 2026; SAR; seed 42. The dataset separates net, illustrative 15% VAT, and gross amounts. Invoices are fully settled or unpaid. Partial payments, credits, returns, and opening receivables are excluded. Recorded settlements are not bank verified.
+
+**AI method:** Isolation Forest uses amount, amount versus customer median, terms, and lateness. Its illustrative 5% review setting is not a fraud rate; scores are not probabilities. Small or indistinguishable cohorts skip AI review. Lending predictive performance has not been validated.
+
+**Verification:** 35 automated tests passed. Browser checks covered sample loading, Excel upload, summary download, and duplicate rejection. Run instructions are in the README.
+
+**Production scope:** bank-statement extraction, reconciliation, access controls, and bank submission are proposed services. The bank retains the financing decision.
 
 ## Task 4 - Integration judgment
 
@@ -168,7 +166,7 @@ Persist the approved package hash, our client reference, and an idempotency key 
 
 Retry a submission only when it is known not to have left our system, or when the bank has agreed and implemented reliable replay protection for that exact key/body. A timeout or dropped connection after sending becomes **unknown outcome**. Query/reconcile using the existing reference; do not create a new key and resend. Our internal idempotency prevents duplicate local commands but cannot by itself guarantee the bank did not process an earlier delivery.
 
-If the bank cannot support safe replay or lookup, unknown cases require bank operations confirmation and human resolution. This limits automatic throughput; it is safer than pretending exactly-once delivery is available.
+If the bank cannot support safe replay or lookup, unknown cases require bank operations confirmation and human resolution. Automatic resubmission remains disabled until the original outcome is confirmed and a new attempt is explicitly authorized under the agreed bank procedure.
 
 ### Treat status as evidence, then reconcile
 
