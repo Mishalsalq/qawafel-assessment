@@ -23,7 +23,7 @@ st.markdown("""
 :is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button:hover {color: #FFFFFF; background-color: rgba(255, 255, 255, 0.10);}
 :is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button:focus-visible {outline: 2px solid #B38B45; outline-offset: 2px;}
 :is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) button svg {color: inherit;}
-[data-testid="stSidebarHeader"] [data-testid="stIconMaterial"] {color: #F7F4ED;}
+:is([data-testid="stHeader"], [data-testid="stSidebarHeader"]) [data-testid="stIconMaterial"] {color: #F7F4ED;}
 .block-container {max-width: 1400px; padding-top: 4rem;}
 [data-testid="stMetric"] {background: white; border: 1px solid #e1e5eb; border-radius: 12px; padding: 18px;}
 [data-testid="stMetricValue"] {font-size: clamp(1.2rem, 2vw, 1.65rem);}
